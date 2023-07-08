@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+ <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign up</title>
+</head>
+<body>
+  <div id="wrapper">
+    <form  id="fsignup" action="" onsubmit="register()">
+      <h1 class="fheading">Sign Up</h1>
+      <div class="fgroup">
+        <input type="text" class="finput" id="username" placeholder="Username">
+      </div>
+      <div class="fgroup">
+        <input type="password" id="password" class="finput" placeholder="Password">
+      </div>
+     
+      <button class="fsubmit" onclick="">Sign Up</button>
+     
+      <a href="./login.html">
+        <div id="back">
+        <img src="./pic/right-from-bracket-solid.svg" height="20px"width="20px">
+      </a>
+    </div>
+    </form>
+  </div>
+</body>
+</html>
+<style>
+    body{
+        background: url('./pic/jakenight.png');
+ background-size: cover;
+ background-repeat: no-repeat;
+        background-attachment: fixed;
+    background-position-y: 20;
+    }
+    #wrapper{
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #fsignup{
+    max-width: 320px;
+    background: rgba(255,255,255,0.6);
+    flex-grow: 2;
+    padding: 30px 30px 88px;
+    box-shadow: 0px 0px 17px 2px rgba(255,255,255,0.8);
+  }
+  .fheading{
+    font-size:36px;
+    text-align: center;
+  }
+  .fgroup{
+    border-bottom: 2px solid black;
+display: flex;
+    margin-bottom: 27px;
+    padding-top: 6px;
+    padding-right:5px;
+  }
+  
+  .finput{
+    background: transparent;
+    border: 0;
+    outline: 0;
+    margin-top: 4px;
+     flex-grow: 1;
+     font-size: 17px;
+  }
+  .finput::placeholder{
+    color: rgb(0, 0, 0,1);
+  }
+#back{
+    display: flex;
+justify-content: center;
+margin-top: 8px;
+}
+.fsubmit{
+    color:black;
+    background: transparent;
+    border: 2px solid black;
+    width: 100%;
+    height: 35px;
+padding: 6px 10px;
+text-transform: uppercase;
+font-size: 20px;
+text-decoration: none;
+cursor: pointer;
+margin-top:15px;
+  }
+  .fsubmit:hover{
+    border: 2px solid #2691d9;
+    color: #2691d9;
+  }
+</style>
+<script>
+  
+  function register(e) {
+     event.preventDefault(); 
+     var username = document.getElementById("username").value; 
+     var password = document.getElementById("password").value; 
+     var user={
+      username:username,
+      password:password,
+     };
+  
+     if (username.trim() === "" || password.trim() === "") { 
+      alert("Vui lòng không để trống tên đăng nhập và mật khẩu"); 
+    } else { var json=JSON.stringify(user);
+     localStorage.setItem(username,json);
+       alert("Đăng ký thành công");
+      window.location.href="login.html"; }}
+
+</script>
