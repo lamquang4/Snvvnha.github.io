@@ -4,12 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sign up</title>
+  <title>Đăng kí</title>
 </head>
 <body>
   <div id="wrapper">
     <form  id="fsignup" action="" onsubmit="register()">
-      <h1 class="fheading">Sign Up</h1>
+      <h1 class="fheading">Đăng kí</h1>
       <div class="fgroup">
         <input type="text" class="finput" id="username" placeholder="Username">
       </div>
@@ -19,7 +19,7 @@
      
       <button class="fsubmit" onclick="">Sign Up</button>
      
-      <a href="https://lamquang4.github.io/login.github.io/">
+      <a href="./index.html">
         <div id="back">
         <img src="./pic/right-from-bracket-solid.svg" height="20px"width="20px">
       </a>
@@ -41,6 +41,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+ 
   }
   #fsignup{
     max-width: 320px;
@@ -52,6 +53,9 @@
   .fheading{
     font-size:36px;
     text-align: center;
+    font-family: Arial;
+  
+
   }
   .fgroup{
     border-bottom: 2px solid black;
@@ -80,19 +84,22 @@ margin-top: 8px;
 .fsubmit{
     color:black;
     background: transparent;
-    border: 2px solid black;
+    background-color:  #00a400;
+    border: 3px solid  black;
     width: 100%;
     height: 35px;
 padding: 6px 10px;
 text-transform: uppercase;
-font-size: 20px;
+font-size: 19.5px;
 text-decoration: none;
 cursor: pointer;
 margin-top:15px;
+border-radius: 6px;
+font-weight: bold;
   }
   .fsubmit:hover{
-    border: 2px solid #2691d9;
-    color: #2691d9;
+  
+background-color: rgb(5, 115, 5);
   }
 </style>
 <script>
