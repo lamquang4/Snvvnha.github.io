@@ -13,26 +13,53 @@
       <div class="fgroup">
         <img src="./pic/user-solid.svg" width="15.3px" height="15.3px" class="hinh">
         <input type="text" class="finput" id="username" placeholder="Username">
+        <small id="username-error">*Không để trống*</small>
       </div>
+     
       <div class="fgroup">
         <img src="./pic/key-solid.svg" width="15.3px" height="15.3px" class="hinh">
         <input type="password" id="password" class="finput" placeholder="Password">
+         <small id="password-error">*Không để trống*</small>
         <div id="eye">
-          <i class="far fa-eye"></i>
+          <i class="far fa-eye"></i> 
+          
       </div>
+   
       </div>
       <button type="submit" class="fsubmit" onclick="">LOG IN</button>
       <div id="dk">
         Don't have an account?
       <a href="./signup.html" class="login_button">Signup</a>
-      </div>
     
+      </div>
+       <div id="wrong">Sai username hoặc password</div>
     </form>
 
 </body>
 </html>
 
 <style>
+  #wrong{
+    color:red;
+    font-size:20px;
+text-align: center;
+    font-weight: bold;
+margin-top: 22px;
+display:none;
+  }
+    #username-error{
+      margin-left: -20px;
+    color:red;
+  font-size: 14.5px;
+  display:none;
+  }
+  #password-error{
+    color:red;
+  font-size: 14.5px;
+  margin-left: -40px;
+ display: none;
+  }
+  
   body{
     background: url('./pic/jake.png');
  background-size: cover;
@@ -153,11 +180,22 @@ $(document).ready(function(){
          var password = document.getElementById("password").value;
          var user=localStorage.getItem(username);
          var data=JSON.parse(user); 
-          if (username === '' || password === '') { 
-            alert("Vui lòng không để trống tên đăng nhập và mật khẩu");
-             return false; } 
-              if (username ===data.username && password === data.password) { 
-                alert("Đăng nhập thành công");
-                window.location.href="web.html"; 
-               } else { alert("Sai tên đăng nhập hoặc mật khẩu"); }}
+                    if (username === "") { document.getElementById("username-error").style.display = "block"; }
+      else { document.getElementById("username-error").style.display = "none"; } 
+      if (password === "") { document.getElementById("password-error").style.display = "block"; } 
+      else { document.getElementById("password-error").style.display = "none"; }
+      if (username === '' || password === '') { 
+            
+             return false; }
+   
+              if(username !==data.username || password !== data.password){
+                document.getElementById("wrong").style.display = "block";
+               }  else{ 
+         
+         window.location.href="web.html"; 
+        } 
+              }
+
+   
+           
 </script>

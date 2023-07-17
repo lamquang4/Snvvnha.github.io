@@ -12,23 +12,48 @@
       <h1 class="fheading">Đăng kí</h1>
       <div class="fgroup">
         <input type="text" class="finput" id="username" placeholder="Username">
+        <small id="username-error">*Không để trống*</small>
       </div>
       <div class="fgroup">
         <input type="password" id="password" class="finput" placeholder="Password">
+        <small id="password-error">*Không để trống*</small>
       </div>
      
-      <button class="fsubmit" onclick="">Sign Up</button>
-     
+      <button type="submit" class="fsubmit" onclick="">Sign Up</button>
+   
       <a href="./index.html">
         <div id="back">
-        <img src="./pic/right-from-bracket-solid.svg" height="20px"width="20px">
-      </a>
+        <img src="./pic/right-from-bracket-solid.svg" height="20px"width="20px">  
+      </a> 
+     
     </div>
+     <div id="success">Đăng kí thành công</div>
     </form>
   </div>
 </body>
 </html>
 <style>
+  #username-error{
+    color:red;
+  font-size: 14.5px;
+display:none;
+ 
+  }
+  #password-error{
+    color:red;
+  font-size: 14.5px;
+ display:none;
+ 
+  }
+  #success{
+    color:rgb(81, 228, 40);
+    font-size: 22px;
+    font-weight: bold;
+text-align: center;
+margin-top: 20px;
+display:none;
+font-family: Arial;
+  }
     body{
         background: url('./pic/jakenight.png');
  background-size: cover;
@@ -83,6 +108,7 @@ display: flex;
     display: flex;
 justify-content: center;
 margin-top: 8px;
+align-items: center;
 }
 .fsubmit{
     color:black;
@@ -104,23 +130,31 @@ font-weight: bold;
   
 background-color: rgb(5, 115, 5);
   }
+  .fgroup.error small{
+    color:red;
+    font-size: 15px;
+  }
 </style>
 <script>
-  
   function register(e) {
      event.preventDefault(); 
      var username = document.getElementById("username").value; 
      var password = document.getElementById("password").value; 
-     var user={
-      username:username,
-      password:password,
-     };
+     if (localStorage.getItem(username) !== null) { 
+      console.log('Tên người dùng đã tồn tại!');} else { 
+        var user = { username: username, 
+          password: password, 
+        }; 
+        var json = JSON.stringify(user); 
+        localStorage.setItem(username, json); 
+        document.getElementById("success").style.display = "block";}
+    
+   if (username === "") { document.getElementById("username-error").style.display = "block"; }
+      else { document.getElementById("username-error").style.display = "none"; } 
+      if (password === "") { document.getElementById("password-error").style.display = "block"; } 
+      else { document.getElementById("password-error").style.display = "none"; }
+       
   
-     if (username.trim() === "" || password.trim() === "") { 
-      alert("Vui lòng không để trống tên đăng nhập và mật khẩu"); 
-    } else { var json=JSON.stringify(user);
-     localStorage.setItem(username,json);
-       alert("Đăng ký thành công");
-      window.location.href="index.html"; }}
-     
+    }
+    
 </script>
