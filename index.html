@@ -12,18 +12,18 @@
       <h1 class="fheading">Đăng nhập</h1>
       <div class="fgroup">
         <img src="./pic/user-solid.svg" width="15.3px" height="15.3px" class="hinh">
-        <input type="text" class="finput" id="username" placeholder="Username">
-        <small id="username-error">*Không để trống*</small>
+        <input type="text" class="finput" id="username" placeholder="Username" required>
+       
       </div>
      
       <div class="fgroup">
         <img src="./pic/key-solid.svg" width="15.3px" height="15.3px" class="hinh">
-        <input type="password" id="password" class="finput" placeholder="Password">
+        <input type="password" id="password" class="finput" placeholder="Password" required>
     
         <div id="eye">
           <i class="fa-solid fa-eye-slash"></i>
       
-          <small id="password-error">*Không để trống*</small>
+      
       </div>
    
       </div>
@@ -48,22 +48,7 @@ text-align: center;
 margin-top: 18px;
 display:none;
   }
-    #username-error{
-      margin-left: -20px;
-    color:red;
-  font-size: 14.5px;
-  display:none;
-  font-style: italic;
-  }
-  #password-error{
-    color:red;
-  font-size: 14.5px;
-margin-left: -114px;
-margin-top: -17.5px;
- display: none;
- font-style: italic;
-  }
-  
+ 
   body{
     background: url('./pic/bg.png');
  background-size: cover;
@@ -188,10 +173,7 @@ $(document).ready(function(){
          var password = document.getElementById("password").value;
          var user=localStorage.getItem(username);
          var data=JSON.parse(user); 
-                    if (username === "") { document.getElementById("username-error").style.display = "block"; }
-      else { document.getElementById("username-error").style.display = "none"; } 
-      if (password === "") { document.getElementById("password-error").style.display = "block"; } 
-      else { document.getElementById("password-error").style.display = "none"; }
+                
       if (username === '' || password === '') { 
             
              return false; }

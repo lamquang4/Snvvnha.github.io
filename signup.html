@@ -11,48 +11,56 @@
     <form  id="fsignup" action="" onsubmit="register()">
       <h1 class="fheading">Đăng kí</h1>
       <div class="fgroup">
-        <input type="text" class="finput" id="username" placeholder="Username">
-        <small id="username-error">*Không để trống*</small>
+        <input type="text" class="finput" id="username" placeholder="Username" required>
+       
       </div>
       <div class="fgroup">
-        <input type="password" id="password" class="finput" placeholder="Password">
-        <small id="password-error">*Không để trống*</small>
+        <input type="email" id="email" class="finput" placeholder="Email" required>
+      
       </div>
+      <div class="fgroup">
+        <input type="password" id="password" class="finput" placeholder="Password" required>
+        <div id="eye">
+          <i class="fa-solid fa-eye-slash"></i>
+      </div>
+      </div>
+   
      
       <button type="submit" class="fsubmit" onclick="">Sign Up</button>
    
-      <a href="./index.html">
-        <div id="back">
-        <img src="./pic/right-from-bracket-solid.svg" height="20px"width="20px">  
-      </a> 
      
-    </div>
+        <div id="back">Already have an account?
+        <a href="./index.html" class="back">Login
+      </a> 
+     </div>
      <div id="success">Đăng kí thành công</div>
+    </div>
+    
     </form>
   </div>
 </body>
 </html>
 <style>
-  #username-error{
-    color:red;
-  font-size: 14.5px;
-display:none;
-font-style: italic;
-
-  }
-  #password-error{
-    color:red;
-  font-size: 14.5px;
- display:none;
- font-style: italic;
-  }
+  #eye,#eye1{
+  padding-top: 2px;
+}
+  #eye,#eye1 i:hover{
+  cursor: pointer;
+ }
+ .back{
+  text-decoration: none;
+  color:#0093f5;
+ }
+ .back:hover{
+  color:#026cb3;
+ }
   #success{
     color:rgb(81, 228, 40);
     font-size: 22px;
     font-weight: bold;
 text-align: center;
+display: none;
 margin-top: 20px;
-display:none;
 font-family: Arial;
   }
     body{
@@ -70,7 +78,7 @@ font-family: Arial;
  
   }
   #fsignup{
-    max-width: 320px;
+    max-width: 370px;
     background: rgba(255,255,255,0.66);
     flex-grow: 2;
     padding: 30px 30px 88px;
@@ -108,8 +116,14 @@ display: flex;
 #back{
     display: flex;
 justify-content: center;
-margin-top: 8px;
+text-decoration: none;
 align-items: center;
+font-size: 18px;
+  padding-top: 10px;
+  margin-top: 10px;
+  color:black;
+  display: block;
+  text-align: center;
 }
 .fsubmit{
     color:black;
@@ -127,35 +141,49 @@ margin-top:10px;
 border-radius: 6px;
 font-weight: bold;
   }
-  .fsubmit:hover{
   
-background-color: rgb(5, 115, 5);
-  }
-  .fgroup.error small{
-    color:red;
-    font-size: 15px;
-  }
 </style>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script>
+ 
+$(document).ready(function(){
+    $('#eye').click(function(){
+        $(this).toggleClass('open');
+        $(this).children('i').toggleClass('fa-eye-slash fa-eye');
+        if($(this).hasClass('open')){
+            $(this).prev().attr('type', 'text');
+        }else{
+            $(this).prev().attr('type', 'password');
+        }
+    });
+});
+$(document).ready(function(){
+    $('#eye1').click(function(){
+        $(this).toggleClass('open');
+        $(this).children('i').toggleClass('fa-eye-slash fa-eye');
+        if($(this).hasClass('open')){
+            $(this).prev().attr('type', 'text');
+        }else{
+            $(this).prev().attr('type', 'password');
+        }
+    });
+});
+
   function register(e) {
      event.preventDefault(); 
      var username = document.getElementById("username").value; 
      var password = document.getElementById("password").value; 
+
      if (localStorage.getItem(username) !== null) { 
       console.log('Tên người dùng đã tồn tại!');} else { 
         var user = { username: username, 
           password: password, 
         }; 
+        
         var json = JSON.stringify(user); 
         localStorage.setItem(username, json); 
         document.getElementById("success").style.display = "block";}
-    
-   if (username === "") { document.getElementById("username-error").style.display = "block"; }
-      else { document.getElementById("username-error").style.display = "none"; } 
-      if (password === "") { document.getElementById("password-error").style.display = "block"; } 
-      else { document.getElementById("password-error").style.display = "none"; }
-       
-  
+ 
     }
-    
+   
 </script>
