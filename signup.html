@@ -15,16 +15,21 @@
        
       </div>
       <div class="fgroup">
-        <input type="email" id="email" class="finput" placeholder="Email" required>
-      
-      </div>
-      <div class="fgroup">
         <input type="password" id="password" class="finput" placeholder="Password" required>
+        <small id="error">Password không trùng khớp</small>
         <div id="eye">
           <i class="fa-solid fa-eye-slash"></i>
       </div>
+  
       </div>
-   
+      <div class="fgroup">
+        <input type="password" id="cpass" class="finput" placeholder="Confirm Password" required>
+        <small id="error1">Password không trùng khớp</small>
+        <div id="eye1">
+          <i class="fa-solid fa-eye-slash"></i>
+      </div>
+    
+      </div>
      
       <button type="submit" class="fsubmit" onclick="">Sign Up</button>
    
@@ -41,8 +46,20 @@
 </body>
 </html>
 <style>
+  small{
+    font-size: 14px;
+    text-wrap: balance;
+    color:red;
+    text-align: center;
+  margin-bottom: 3.2px;
+  display:none;
+  }
   #eye,#eye1{
+    display:flex;
   padding-top: 2px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5px;
 }
   #eye,#eye1 i:hover{
   cursor: pointer;
@@ -169,11 +186,25 @@ $(document).ready(function(){
     });
 });
 
+  
+ 
+    
+   
+</script>
+<script>
   function register(e) {
      event.preventDefault(); 
      var username = document.getElementById("username").value; 
      var password = document.getElementById("password").value; 
-
+var confirmPassword=document.getElementById("cpass").value; 
+ if (password !== confirmPassword) {
+  document.getElementById("error").style.display = "block";
+  document.getElementById("error1").style.display = "block"; 
+  return;
+  }else{
+    document.getElementById("error").style.display = "none";
+  document.getElementById("error1").style.display = "none"; 
+  }
      if (localStorage.getItem(username) !== null) { 
       console.log('Tên người dùng đã tồn tại!');} else { 
         var user = { username: username, 
@@ -185,5 +216,4 @@ $(document).ready(function(){
         document.getElementById("success").style.display = "block";}
  
     }
-   
 </script>
