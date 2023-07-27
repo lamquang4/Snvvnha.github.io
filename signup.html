@@ -16,19 +16,19 @@
       </div>
       <div class="fgroup">
         <input type="password" id="password" class="finput" placeholder="Password" required>
-        <small id="error">Password không trùng khớp</small>
+        
         <div id="eye">
           <i class="fa-solid fa-eye-slash"></i>
       </div>
-  
+  <small id="error">Password không trùng khớp</small>
       </div>
       <div class="fgroup">
         <input type="password" id="cpass" class="finput" placeholder="Confirm Password" required>
-        <small id="error1">Password không trùng khớp</small>
+       
         <div id="eye1">
           <i class="fa-solid fa-eye-slash"></i>
       </div>
-    
+     <small id="error1">Password không trùng khớp</small>
       </div>
      
       <button type="submit" class="fsubmit" onclick="">Sign Up</button>
@@ -184,12 +184,7 @@ $(document).ready(function(){
             $(this).prev().attr('type', 'password');
         }
     });
-});
-
-  
- 
-    
-   
+}); 
 </script>
 <script>
   function register(e) {
@@ -198,15 +193,14 @@ $(document).ready(function(){
      var password = document.getElementById("password").value; 
 var confirmPassword=document.getElementById("cpass").value; 
  if (password !== confirmPassword) {
-  document.getElementById("error").style.display = "block";
-  document.getElementById("error1").style.display = "block"; 
+  document.getElementById("error").style.display = "inline-block";
+  document.getElementById("error1").style.display = "inline-block"; 
   return;
   }else{
     document.getElementById("error").style.display = "none";
   document.getElementById("error1").style.display = "none"; 
   }
-     if (localStorage.getItem(username) !== null) { 
-      console.log('Tên người dùng đã tồn tại!');} else { 
+     
         var user = { username: username, 
           password: password, 
         }; 
@@ -215,5 +209,5 @@ var confirmPassword=document.getElementById("cpass").value;
         localStorage.setItem(username, json); 
         document.getElementById("success").style.display = "block";}
  
-    }
+    
 </script>
