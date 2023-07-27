@@ -17,17 +17,13 @@
       <div class="fgroup">
         <input type="password" id="password" class="finput" placeholder="Password" required>
         
-        <div id="eye">
-          <i class="fa-solid fa-eye-slash"></i>
-      </div>
+     
   <small id="error">Password không trùng khớp</small>
       </div>
       <div class="fgroup">
         <input type="password" id="cpass" class="finput" placeholder="Confirm Password" required>
        
-        <div id="eye1">
-          <i class="fa-solid fa-eye-slash"></i>
-      </div>
+        
      <small id="error1">Password không trùng khớp</small>
       </div>
      
@@ -47,23 +43,15 @@
 </html>
 <style>
   small{
-    font-size: 12.5px;
+    font-size: 13px;
     text-wrap: balance;
     color:red;
     text-align: center;
   margin-bottom: 3.2px;
-  display: none;
+
+  padding-right: 3px;
   }
-  #eye,#eye1{
-    display:flex;
-  padding-top: 2px;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 5px;
-}
-  #eye,#eye1 i:hover{
-  cursor: pointer;
- }
+
  .back{
   text-decoration: none;
   color:#0093f5;
@@ -73,12 +61,13 @@
  }
   #success{
     color:rgb(81, 228, 40);
-    font-size: 22px;
+    font-size: 21.5px;
     font-weight: bold;
 text-align: center;
 display: none;
 margin-top: 20px;
 font-family: Arial;
+
   }
     body{
         background: url('./pic/hn.png');
@@ -95,8 +84,8 @@ font-family: Arial;
  
   }
   #fsignup{
-    max-width: 320px;
-    max-height:350px;
+    max-width: 328px;
+    max-height:376px;
     background: rgba(255,255,255,0.66);
     flex-grow: 2;
     padding: 30px 30px 88px;
@@ -162,31 +151,7 @@ font-weight: bold;
   
 </style>
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<script>
- 
-$(document).ready(function(){
-    $('#eye').click(function(){
-        $(this).toggleClass('open');
-        $(this).children('i').toggleClass('fa-eye-slash fa-eye');
-        if($(this).hasClass('open')){
-            $(this).prev().attr('type', 'text');
-        }else{
-            $(this).prev().attr('type', 'password');
-        }
-    });
-});
-$(document).ready(function(){
-    $('#eye1').click(function(){
-        $(this).toggleClass('open');
-        $(this).children('i').toggleClass('fa-eye-slash fa-eye');
-        if($(this).hasClass('open')){
-            $(this).prev().attr('type', 'text');
-        }else{
-            $(this).prev().attr('type', 'password');
-        }
-    });
-}); 
-</script>
+
 <script>
   function register(e) {
      event.preventDefault(); 
