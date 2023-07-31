@@ -12,16 +12,19 @@
     <form  id="fsignup" action="" onsubmit="register()">
       <h1 class="fheading">Đăng kí</h1>
       <div class="fgroup">
+       <i class="fa-solid fa-user"></i>
         <input type="text" class="finput" id="username" placeholder="Username" required>
        
       </div>
       <div class="fgroup">
+           <i class="fa-solid fa-key"></i>
         <input type="password" id="password" class="finput" placeholder="Password" required>
         
      
   <small id="error">Password không trùng khớp</small>
       </div>
       <div class="fgroup">
+           <i class="fa-solid fa-key"></i>
         <input type="password" id="cpass" class="finput" placeholder="Confirm Password" required>
        
         
@@ -43,6 +46,10 @@
 </body>
 </html>
 <style>
+   i{
+  margin-left: 6.5px;
+  margin-top: 6.2px;
+  }
    button{
         transition: all 0.2s ease;
     }
